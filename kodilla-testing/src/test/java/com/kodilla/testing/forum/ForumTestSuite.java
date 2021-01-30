@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class ForumTestSuite {
 
-    @Test
+    @Test // Adnotacja ta mówi kompilatorowi że metoda za nią jest przypadkiem testowym
     public void testCaseForumUser(){
         //Given
         SimpleUser simpleUser = new SimpleUser("theForumUser");
