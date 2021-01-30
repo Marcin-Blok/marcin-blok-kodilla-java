@@ -2,7 +2,7 @@ package com.kodilla.testing.forum;
 
 import com.kodilla.testing.user.SimpleUser;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ForumTestSuite {
 
