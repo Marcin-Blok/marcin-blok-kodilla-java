@@ -23,6 +23,7 @@ public class ForumUser {
 
     public void addComment(ForumPost thePost, String author, String commentBody){
         ForumComment theComment = new ForumComment(thePost,commentBody,author);
+        comments.add(theComment);
     }
 
     public int getPostsQuantity(){
@@ -59,8 +60,12 @@ public class ForumUser {
     }
 
     public boolean removeComment(ForumComment theComment){
-        // return true temporarily
-        return true;
+        boolean result = false;
+        if(comments.contains(theComment)){
+            comments.remove(theComment);
+            result = true;
+        }
+        return result;
     }
 
     public String getName() {
