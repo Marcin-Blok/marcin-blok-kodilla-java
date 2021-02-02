@@ -1,5 +1,6 @@
 package com.kodilla.testing.library;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -96,9 +97,23 @@ public class BookDirectoryTestSuite {
         when(libraryDatabaseMock.listBooksWithCondition(anyString())).thenReturn(resultListOf10Books);
         // When
         List<Book> theListOfBooks10 = bookLibrary.listBooksWithCondition("An");
-
         // Then
         assertEquals(0, theListOfBooks10.size());
         verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());
+    }
+
+
+    @Test
+    public void testListOf0BooksInHandsOf(){
+        //Given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        LibraryUser libraryUser = new LibraryUser("Kamil", "Kot", "75061425187");
+        List<Book> listOf0Books = new ArrayList<>();
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(listOf0Books);
+        //When
+        List<Book> list = bookLibrary.listBooksInHandsOf(libraryUser);
+        //Then
+        Assertions.assertEquals(0,list.size());
     }
 }
